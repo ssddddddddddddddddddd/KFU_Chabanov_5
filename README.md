@@ -511,3 +511,152 @@ public:
 };
 ```
 Ответ: <code> protected </code>
+
+33) Дан фрагмент кода на языке С++. Что будет на экране в результате выполнения данного фрагмента?
+```cpp
+class A{
+public:
+    int value = 1;
+};
+
+class B{
+public:
+    int value = 5;
+};
+
+class C: public A, public B{
+};
+
+C obj;
+std::cout << obj.value;
+```
+Ответ: <code> Ошибка </code>
+
+34) Какие из следующих вариантов использования мьютекса в Go являются правильными (считаем, что в процессе работы с данными ошибки быть не может)?<br>
+
+Ответ:
+```cpp
+func foo() {
+    mutex.Lock()
+    defer mutex.Unlock()
+    // работа с данными
+}
+```
+```cpp
+func foo() {
+    mutex.Lock()
+    // работа с данными
+    mutex.Unlock()
+}
+```
+
+35) Что будет выведено на экран в результате работы этого кода?
+```cpp
+#include <iostream>
+
+void foo(int& a){
+    std::cout << "+" << std::endl;
+}
+
+void foo(int&& a){
+    std::cout << "-" << std::endl;
+}
+
+int main(){
+    int a = 4;
+    foo(a);
+}
+```
+Ответ:<code> + </code>
+
+36) Дан фрагмент кода на языке С++. Что будет на экране в результате выполнения данного фрагмента?
+```cpp
+class A{
+public:
+    A(){
+        std::cout << 'A';
+    }
+};
+
+class B{
+public:
+    B(){
+        std::cout << 'B';
+    }
+};
+
+class C: public A, public B{
+public:
+    C(){
+        std::cout << 'C';
+    }
+};
+
+C obj;
+```
+Ответ:<code> ABC </code>
+
+37) Дан фрагмент кода на языке С++. Что будет на экране в результате выполнения данного фрагмента?
+```cpp
+class A{
+public:
+    int value = 1;
+    A(){
+    	value = 5;
+    }
+    A(int value){
+    	value = 9;
+    }
+};
+
+class B: public A{
+public:
+    B(int value){};
+};
+
+B obj(1);
+std::cout << obj.value;
+```
+Ответ:<code> 5 </code>
+
+38) Дан фрагмент кода на языке С++. Что будет на экране в результате выполнения данного фрагмента?
+```cpp
+class A{
+public:
+    void get(){
+        std::cout << 'A';
+    }
+};
+
+class B{
+public:
+    void get(){
+        std::cout << 'B';
+    }
+};
+
+class C: public B, public A{
+};
+
+C obj;
+obj.get();
+```
+Ответ:<code> Ошибка </code>
+
+39) Дан фрагмент кода на языке С++. Что будет на экране в результате выполнения данного фрагмента?
+```cpp
+struct А{
+    int value = 1;
+};
+
+struct B: A{
+    int value = 1;
+    B(int value){
+        this->value = value;
+    }
+};
+
+B obj(5);
+std::cout << obj.value;
+```
+Ответ:<code> 5 </code>
